@@ -83,29 +83,10 @@
 
 // ### 5. `printGreeting` v2.0
 
-// There is a very rudimentary JavaScript function for receiving user input called `prompt()`.  
+// const userInput = prompt("Please enter some input");
 
-// Usage: 
-
-
-	// const userInput = prompt("Please enter some input");
-
-
-// > `userInput` is now whatever the user entered.
-
-// There is another rudimentary JavaScript function for displaying text called `alert()`. You probably have heard of it. It takes a string as a parameter. Read about it on mdn.
-
-// Let's revisit `printGreeting`.
-
-// First get the `userInput` as above. Then write a function called `printGreeting2` with a parameter `name` that returns a greeting with the argument interpolated into the greeting as before, but this time use the alert function to display the greeting to the user. 
-
-const userInput = prompt("Please enter some input");
-
-
-// <hr>
-
-
-// ## Hungry for more?
+// let printGreeting2 = name => alert(`Hello ${name}! How have you been?`);
+// printGreeting2(userInput);
 
 // ### 6. Functions + loops: a special partnership 
 
@@ -130,6 +111,35 @@ const userInput = prompt("Please enter some input");
 
 // Remember to give it a nice **semantic** name
 
+let checker = num => {
+    for (let i = 1; i <= num; i++) {
+      let row = [];
+      let string = '';
+      if (i % 2 == 0) {
+        for (let j = 1; j <= num; j++) {
+          if (j % 2 === 0) {
+            row.push(' ');
+          } else {
+            row.push('#');
+          }        
+        }
+      } 
+      else 
+      {
+        for (let k = 1; k <= num; k++) {
+          if (k % 2 === 0) {
+            row.push('#');
+          } else {
+            row.push(' ');
+          }        
+        }
+      }
+        string = row.join('');
+        console.log(string);
+    }
+  }
+  checker(22);
+
 // > This problem was adapted from one in [Eloquent Javascript](http://eloquentjavascript.net/02_program_structure.html#p_1pkxSCSkVg) so hopefully you've already seen it because you've been reading Eloquent Javascript. If you haven't yet, read the first 3 chapters (this reads great on a phone, and if you take transit, this is a great thing to read on the train/bus on your way in).  Homework will be assigned soon. 
 
 // <hr>
@@ -137,6 +147,26 @@ const userInput = prompt("Please enter some input");
 // ### 8. Variable number of arguments
 
 // Modify `calculate` above so that it continues to work as specified in question 3, but also lets a user get the square root of a number by specifying only 2 parameters: the number they want the square root of as the first parameter, and "sqrt" as the second parameter.
+
+let determine = (num1,operation, num2) => {
+    switch (operation) {
+        case 'add':
+            return num1 + num2;
+        case 'sub':
+            return num1 - num2;
+        case 'div':
+            return num1 / num2;
+        case 'div':
+            return num1 * num2;
+        case 'exp':
+            return Math.pow(num1, num2);
+        case 'sqrt':
+            return Math.sqrt(num1);
+        default:
+            return "Sorry, I can't read";
+    }
+}
+console.log(determine(35, 'sqrt'));
 
 // Click "Details" below for a hint:
 
